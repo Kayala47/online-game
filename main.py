@@ -45,10 +45,12 @@ def main():
     # 3. ask the user what their message is and write it down as the variable "message"
     if (typeofMsg == "POST"):
         msg = input("")
-    sendMessage(typeofMsg, user, msg)
 
-    sendMessage("POST", "kevin", "hi!")
-    sendMessage("GET", "kevin", "none")
+
+    # 2. ask the user what their name is and write it down as the variable "user"
+
+    # 3. ask the user what their message is and write it down as the variable "message"
+
 
 
 # don't touch this :)
