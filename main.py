@@ -13,7 +13,7 @@ def sendMessage(type: str, user: str, message: str):
     if (typeofMsg == "GET"):
         response = requests.get(URL)
         print(response.text)
-    else:
+    elif (typeofMsg == "POST"):
         # POST
 
         # first, let's make the JSON object
@@ -43,6 +43,8 @@ def main():
 
     print("Sent message of type: " + typeofMsg +
           ". The message was from username " + user + " and said: " + msg)
+
+    sendMessage(typeofMsg, user, msg)
 
 
 # don't touch this :)
