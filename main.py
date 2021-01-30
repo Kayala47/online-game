@@ -10,7 +10,7 @@ URL = "https://josh-game.kayala.workers.dev/"
 
 
 def sendMessage(type: str, user: str, message: str):
-    if (type == "GET"):
+    if (typeofMsg == "GET"):
         response = requests.get(URL)
         print(response.text)
     else:
@@ -26,31 +26,23 @@ def main():
     print("This is josh's hw!")
 
     # take information using input()
-    typeofMsg = ""
-    user = ""
-    msg = ""
 
     # 1. ask the user whether they're doing a POST or a GET and write down the response as the variable "type"
-    typeofMsg = input("")
-    if (typeofMsg.capitalize()  == "GET"):
-        typeofMsg = "HI"
-    else:
-        print(typeofMsg)
-        #POST
+    typeofMsg = input("What type of message do you want to send?")
+    if (typeofMsg.capitalize() == "GET"):
+        print("This is a GET message")
+    elif (typeofMsg.capitalize == "POST"):
+        print("This is a POST message")
+        # POST
     # 2. ask the user what their name is and write it down as the variable "user"
-    user = input("")
-    
-
+    user = input("What is your username?")
 
     # 3. ask the user what their message is and write it down as the variable "message"
     if (typeofMsg == "POST"):
-        msg = input("")
+        msg = input("What message do you want to send?")
 
-
-    # 2. ask the user what their name is and write it down as the variable "user"
-
-    # 3. ask the user what their message is and write it down as the variable "message"
-
+    print("Sent message of type: " + typeofMsg +
+          ". The message was from username " + user + " and said: " + msg)
 
 
 # don't touch this :)
