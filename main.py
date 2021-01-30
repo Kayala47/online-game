@@ -9,7 +9,7 @@ URL = "https://josh-game.kayala.workers.dev/"
 # make a function to send information to our website
 
 
-def sendMessage(type: str, user: str, message: str):
+def sendMessage(typeofMsg: str, user: str, message: str):
     if (typeofMsg == "GET"):
         response = requests.get(URL)
         print(response.text)
@@ -24,14 +24,20 @@ def sendMessage(type: str, user: str, message: str):
 
 def main():
     print("This is josh's hw!")
+    # josh's hw this week is to add a while loop and a stop condition for it!
 
     # take information using input()
 
     # 1. ask the user whether they're doing a POST or a GET and write down the response as the variable "type"
     typeofMsg = input("What type of message do you want to send?")
-    if (typeofMsg.capitalize() == "GET"):
+    typeofMsg = typeofMsg.upper()
+
+    msg = ""
+
+    print(typeofMsg)
+    if (typeofMsg == "GET"):
         print("This is a GET message")
-    elif (typeofMsg.capitalize == "POST"):
+    elif (typeofMsg == "POST"):
         print("This is a POST message")
         # POST
     # 2. ask the user what their name is and write it down as the variable "user"
