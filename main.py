@@ -9,9 +9,9 @@ URL = "https://josh-game.kayala.workers.dev/"
 # make a function to send information to our website
 
 
-def sendMessage(typeofMsg: str, user: str, message: str):
+def sendMessage(typeofMsg: str, user: str, message: str, session):
     if (typeofMsg == "GET"):
-        response = requests.get(URL)
+        response = session.get(URL)
         print(response.text)
     elif (typeofMsg == "POST"):
         # POST
@@ -19,11 +19,13 @@ def sendMessage(typeofMsg: str, user: str, message: str):
         # first, let's make the JSON object
         json = "{username:" + user + ",message:" + message + "}"
 
-        response = requests.post(URL, data=json)
+        response = session.post(URL, data=json)
 
 
 def main():
     print("This is josh's hw!")
+
+    session = requests.Session()
     # josh's hw this week is to add a while loop and a stop condition for it!
     on = True
     while (on):
@@ -52,7 +54,7 @@ def main():
         print("Sent message of type: " + typeofMsg +
               ". The message was from username " + user + " and said: " + msg)
 
-        sendMessage(typeofMsg, user, msg)
+        sendMessage(typeofMsg, user, msg, session)
 
         keepGoing = input("Do you want to another message? Yes/no")
         if (keepGoing[0].upper() == "N"):
