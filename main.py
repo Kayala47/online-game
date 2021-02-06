@@ -17,7 +17,7 @@ def sendMessage(typeofMsg: str, user: str, message: str):
         # POST
 
         # first, let's make the JSON object
-        json = "{user:" + user + ",message:" + message + "}"
+        json = "{username:" + user + ",message:" + message + "}"
 
         response = requests.post(URL, data=json)
 
@@ -27,8 +27,6 @@ def main():
     # josh's hw this week is to add a while loop and a stop condition for it!
     on = True
     while (on):
-
-
 
         # take information using input()
 
@@ -52,7 +50,7 @@ def main():
             msg = input("What message do you want to send?")
 
         print("Sent message of type: " + typeofMsg +
-            ". The message was from username " + user + " and said: " + msg)
+              ". The message was from username " + user + " and said: " + msg)
 
         sendMessage(typeofMsg, user, msg)
 
