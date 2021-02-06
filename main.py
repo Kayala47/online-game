@@ -25,32 +25,40 @@ def sendMessage(typeofMsg: str, user: str, message: str):
 def main():
     print("This is josh's hw!")
     # josh's hw this week is to add a while loop and a stop condition for it!
+    on = True
+    while (on):
 
-    # take information using input()
 
-    # 1. ask the user whether they're doing a POST or a GET and write down the response as the variable "type"
-    typeofMsg = input("What type of message do you want to send?")
-    typeofMsg = typeofMsg.upper()
 
-    msg = ""
+        # take information using input()
 
-    print(typeofMsg)
-    if (typeofMsg == "GET"):
-        print("This is a GET message")
-    elif (typeofMsg == "POST"):
-        print("This is a POST message")
-        # POST
-    # 2. ask the user what their name is and write it down as the variable "user"
-    user = input("What is your username?")
+        # 1. ask the user whether they're doing a POST or a GET and write down the response as the variable "type"
+        typeofMsg = input("What type of message do you want to send?")
+        typeofMsg = typeofMsg.upper()
 
-    # 3. ask the user what their message is and write it down as the variable "message"
-    if (typeofMsg == "POST"):
-        msg = input("What message do you want to send?")
+        msg = ""
 
-    print("Sent message of type: " + typeofMsg +
-          ". The message was from username " + user + " and said: " + msg)
+        print(typeofMsg)
+        if (typeofMsg == "GET"):
+            print("This is a GET message")
+        elif (typeofMsg == "POST"):
+            print("This is a POST message")
+            # POST
+        # 2. ask the user what their name is and write it down as the variable "user"
+        user = input("What is your username?")
 
-    sendMessage(typeofMsg, user, msg)
+        # 3. ask the user what their message is and write it down as the variable "message"
+        if (typeofMsg == "POST"):
+            msg = input("What message do you want to send?")
+
+        print("Sent message of type: " + typeofMsg +
+            ". The message was from username " + user + " and said: " + msg)
+
+        sendMessage(typeofMsg, user, msg)
+
+        keepGoing = input("Do you want to another message? Yes/no")
+        if (keepGoing[0].upper() == "N"):
+            on = False
 
 
 # don't touch this :)
