@@ -3,8 +3,6 @@
 # lets first install the package we need: requests
 import requests
 import pygame
-
-
 # constants: URL of our website
 URL = "https://josh-game.kayala.workers.dev/"
 
@@ -15,7 +13,6 @@ def sendMessage(typeofMsg: str, user: str, message: str, session):
     if (typeofMsg == "GET"):
         response = session.get(URL)
         print(response.text)
-        print(session.cookies['JSESSIONID'])
     elif (typeofMsg == "POST"):
         # POST
 
@@ -23,7 +20,6 @@ def sendMessage(typeofMsg: str, user: str, message: str, session):
         json = "{username:" + user + ",message:" + message + "}"
 
         response = session.post(URL, data=json)
-        print(response.text)
 
 
 def main():
