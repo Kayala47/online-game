@@ -17,8 +17,10 @@ class Wizard(pygame.sprite.Sprite):
 
     def __init__(self, place, sound_set):
         '''
-
-
+        Init is initalizing  these varibles to set things that the client.py is using to use in fuctions below
+        Input:
+        place is the part where the wizard might show up. Possible inputs are "left" or "right"
+        sound_set is used to tell what volume level the user wants. the sound levels can be set to 0.0 - 1
         '''
 
         # super().__init__()
