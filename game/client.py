@@ -17,9 +17,8 @@ bg = pygame.image.load("..\\sprites\\backround.png")
 wizard = pygame.image.load("..\\sprites\\wizard.png")
 
 # comment every single line like this
-wizard_blast = pygame.mixer.Sound(
-    "..\\sounds\\alien_blast.wav")  # after comments work too
-wizard_blast.set_volume(0.09)
+wizard_blast = pygame.mixer.Sound( "..\\sounds\\alien_blast.wav")  # after comments work too
+
 number = 0
 GROUND = 200
 START_X = 100

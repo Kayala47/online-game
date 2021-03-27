@@ -1,10 +1,12 @@
 import pygame
+#this imports the libary pygmae
 
 
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 START_X = 100
 END_x = 470
 GROUND = 200
+#set varible that are used to find where wizard should be.
 
 
 class Wizard(pygame.sprite.Sprite):
@@ -28,6 +30,7 @@ class Wizard(pygame.sprite.Sprite):
 
         # this does blah blah
         wizard_blast.set_volume(sound_set)
+        #this mkae it so they cna change the volume
 
         if (place == "left"):
             win.blit(wizard, (START_X, GROUND))
@@ -35,9 +38,12 @@ class Wizard(pygame.sprite.Sprite):
         else:
             win.blit(wizard, (END_X, GROUND))
 
+        #the if and else means if it calls left go left but if not then right
+
         pygame.mixer.Sound.play(wizard_blast)
 
         pygame.display.update()
+        #to update the display
 
 
 def test():
@@ -52,6 +58,7 @@ def test():
 
 
 print(test.__doc__)
+# this is too print the doc of test wihc is the first commment
 
 '''
 This is actually a free floating string. But the computer doesn't do anything with it.
