@@ -11,13 +11,14 @@ pygame.mixer.init()
 width = 600
 height: int = 289
 win = pygame.display.set_mode((width, height))
+type(win)
 pygame.display.set_caption("Is_this_working")
 
 bg = pygame.image.load("..\\sprites\\backround.png")
-wizard = pygame.image.load("..\\sprites\\wizard.png")
+# wizard = pygame.image.load("..\\sprites\\wizard.png")
 
 # comment every single line like this
-wizard_blast = pygame.mixer.Sound( "..\\sounds\\alien_blast.wav")  # after comments work too
+# after comments work too
 
 number = 0
 GROUND = 200

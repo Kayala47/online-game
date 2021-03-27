@@ -1,12 +1,13 @@
 import pygame
-#this imports the libary pygmae
+# this imports the libary pygmae
 
+#import fireball
 
-# wizard = pygame.image.load("..\\sprites\\wizard.png")
 START_X = 100
-END_x = 470
+
+END_X = 470
 GROUND = 200
-#set varible that are used to find where wizard should be.
+# set varible that are used to find where wizard should be.
 
 
 class Wizard(pygame.sprite.Sprite):
@@ -17,7 +18,20 @@ class Wizard(pygame.sprite.Sprite):
 
     '''
 
-    def __init__(self, place: str, sound_set: float = 0.1):
+    # stats:
+
+    # how much health the wizard has
+    START_HEALTH = 10
+
+    BASE_DAMAGE = 4  # how much damage its main attack does
+
+    # SPEED = 20
+
+    BASE_DODGE_CHANCE = 1  # /100, probability of dodging an attack
+
+    LEVEL_CAP = 49
+
+    def __init__(self, win: pygame.Surface, place: str, sound_set: float = 0.1):
         '''
         Description:
         Init is initalizing  these varibles to set things that the client.py is using to use in fuctions below
@@ -27,23 +41,59 @@ class Wizard(pygame.sprite.Sprite):
         '''
 
         # super().__init__()
+        # set all stats
+        self.lvl = 1
+        self.hp = self.START_HEALTH * lvl
+        self.damage = self.BASE_DAMAGE + (1 * lvl)
+        self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * lvl)
 
-        # this does blah blah
+        # TODO: define hitbox for the wizard
+
+        # loading an image josh drew
+        wizard_img = pygame.image.load("..\\sprites\\wizard.png")
+
+        # loading a sound we found online for the wizard's magic blast
+        wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
+
+        # this mkae it so they cna change the volume
         wizard_blast.set_volume(sound_set)
-        #this mkae it so they cna change the volume
 
+        # the if and else means if it calls left go left but if not then right
         if (place == "left"):
-            win.blit(wizard, (START_X, GROUND))
+            win.blit(wizard_img, (START_X, GROUND))
 
         else:
-            win.blit(wizard, (END_X, GROUND))
-
-        #the if and else means if it calls left go left but if not then right
+            win.blit(wizard_img, (END_X, GROUND))
 
         pygame.mixer.Sound.play(wizard_blast)
 
         pygame.display.update()
-        #to update the display
+        # to update the display
+
+    def get_current_health(self):
+        return self.health
+
+    def get_max_health(self):
+        return self.START_HEALTH * self.lvl
+
+    def take_damage(self, amt: int):
+        self.health -= amt
+
+    def heal(self, amt: int):
+        # the wizard can only be healed to a certain amount. We make sure his health doesn't go above that
+        self.health = min(self.health + amt, self.get_max_health())
+
+    # TODO: define functions to set dodge chance, increase it - JOSH HW
+
+    # TODO: define a function to level up - increase all his stats. JOSH HW
+
+    # TODO: define a funciton to launch a magic blast
+
+    # define a new class for the fireball
+
+    # TODO: define a function to move the wizard
+
+    # TODO: define a funciton to launch the magic nuke
 
 
 def test():
@@ -60,8 +110,14 @@ def test():
 print(test.__doc__)
 # this is too print the doc of test wihc is the first commment
 
+win = pygame.display.set_mode((100, 100))
+print(type(win))
+
+
 '''
 This is actually a free floating string. But the computer doesn't do anything with it.
 
 
 '''
+
+test()
