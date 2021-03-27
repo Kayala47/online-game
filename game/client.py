@@ -11,7 +11,7 @@ pygame.mixer.init()
 width = 600
 height: int = 289
 win = pygame.display.set_mode((width, height))
-type(win)
+
 pygame.display.set_caption("Is_this_working")
 
 bg = pygame.image.load("..\\sprites\\backround.png")
