@@ -85,7 +85,12 @@ class Wizard(pygame.sprite.Sprite):
 
     # TODO: define functions to set dodge chance, increase it - JOSH HW
 
-    # TODO: define a function to level up - increase all his stats. JOSH HW
+    # a function to level up - increase all his stats.
+    def level_up(self):
+        self.lvl += 1
+        self.hp = self.START_HEALTH * lvl
+        self.damage = self.BASE_DAMAGE + (1 * lvl)
+        self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * lvl)
 
     # TODO: define a funciton to launch a magic blast
 
