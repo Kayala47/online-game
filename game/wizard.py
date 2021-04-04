@@ -69,6 +69,9 @@ class Wizard(pygame.sprite.Sprite):
 
         pygame.display.update()
         # to update the display
+    
+    def get_position():
+        
 
     def get_current_health(self):
         return self.health
