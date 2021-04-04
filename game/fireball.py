@@ -1,5 +1,5 @@
 import pygame
-import game.wizard
+import wizard
 
 missile = "..\\sprites\\missile"
 
@@ -10,12 +10,14 @@ class Fireball(pygame.sprite.Sprite):
 
     '''
 
-    def __init__(self, win, dmg, target, wizard):
+    def __init__(self, win, dmg, target, wizard: wizard.Wizard):
 
         self.dmg = dmg
         self.win = win
         self.target = target
-        (self.x, self.y) = wizard.get_position()
+        # (self.x, self.y) = wizard.get_position()
+        self.x = 100
+        self.y = 200
         self.x += 20
 
         # load an image and blit it
@@ -29,4 +31,4 @@ class Fireball(pygame.sprite.Sprite):
         # moves along until it hits something
         # when it does hit something, deal damage to it
         # otherwise, stop when it hits the edge
-        def move(self, win, dmg, target):
+        # def move(self, win, dmg, target):
