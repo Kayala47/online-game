@@ -15,11 +15,13 @@ class Fireball(pygame.sprite.Sprite):
         self.dmg = dmg
         self.win = win
         self.target = target
+        (self.x, self.y) = wizard.get_position()
+        self.x += 20
 
-         
         # load an image and blit it
         missile_load = pygame.image.load("..\\sprites\\missile.png")
-        win.blit(missile_load, (wizard.START_X += 50, 70))
+
+        win.blit(missile_load, (self.x, self.y))
 
         # call move()
 

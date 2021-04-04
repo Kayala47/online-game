@@ -47,6 +47,9 @@ class Wizard(pygame.sprite.Sprite):
         self.damage = self.BASE_DAMAGE + (1 * lvl)
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * lvl)
 
+        self.x = START_X
+        self.y = GROUND
+
         # TODO: define hitbox for the wizard
 
         # loading an image josh drew
@@ -69,9 +72,9 @@ class Wizard(pygame.sprite.Sprite):
 
         pygame.display.update()
         # to update the display
-    
-    def get_position():
-        
+
+    def get_position(self):
+        return (self.x, self.y)
 
     def get_current_health(self):
         return self.health
