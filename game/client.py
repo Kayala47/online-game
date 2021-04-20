@@ -41,6 +41,7 @@ while True:
     # pygame.display.update()
 
     fb = fireball.Fireball(win, 10, wizard, wizard)
+    wizard.update()
 
     #print("josh died")
 

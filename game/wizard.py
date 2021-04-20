@@ -47,6 +47,7 @@ class Wizard(pygame.sprite.Sprite):
         self.hp = self.START_HEALTH * self.lvl
         self.damage = self.BASE_DAMAGE + (1 * self.lvl)
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * self.lvl)
+        self.win = win
 
         self.x = START_X
         self.y = GROUND
@@ -55,7 +56,7 @@ class Wizard(pygame.sprite.Sprite):
         self.dodge()
 
         # loading an image josh drew
-        wizard_img = pygame.image.load("..\\sprites\\wizard.png")
+        self.wizard_img = pygame.image.load("..\\sprites\\wizard.png")
 
         # loading a sound we found online for the wizard's magic blast
         wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
@@ -65,10 +66,10 @@ class Wizard(pygame.sprite.Sprite):
 
         # the if and else means if it calls left go left but if not then right
         if (place == "left"):
-            win.blit(wizard_img, (START_X, GROUND))
+            win.blit(self.wizard_img, (START_X, GROUND))
 
         else:
-            win.blit(wizard_img, (END_X, GROUND))
+            win.blit(self.wizard_img, (END_X, GROUND))
 
         pygame.mixer.Sound.play(wizard_blast)
 
@@ -109,12 +110,14 @@ class Wizard(pygame.sprite.Sprite):
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * lvl)
 
     # TODO: define a funciton to launch a magic blast
+    def update(self):
+        self.win.blit(self.wizard_img, (self.x, self.y))
 
-    # define a new class for the fireball
+        # define a new class for the fireball
 
-    # TODO: define a function to move the wizard
+        # TODO: define a function to move the wizard
 
-    # TODO: define a funciton to launch the magic nuke
+        # TODO: define a funciton to launch the magic nuke
 
 
 def test():
