@@ -1,4 +1,5 @@
 import pygame
+import random
 # this imports the libary pygmae
 
 #import fireball
@@ -51,6 +52,7 @@ class Wizard(pygame.sprite.Sprite):
         self.y = GROUND
 
         # TODO: define hitbox for the wizard
+        dodge()
 
         # loading an image josh drew
         wizard_img = pygame.image.load("..\\sprites\\wizard.png")
@@ -90,6 +92,14 @@ class Wizard(pygame.sprite.Sprite):
         self.health = min(self.health + amt, self.get_max_health())
 
     # TODO: define functions to set dodge chance, increase it - JOSH HW
+    def random_dodge(self):
+        random_chance = random(0, 100)
+        return random_chance
+
+    def dodge(self):
+        random_number = random_dodge()
+        
+        print (random_number)
 
     # a function to level up - increase all his stats.
     def level_up(self):
