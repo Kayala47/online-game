@@ -16,8 +16,8 @@ class Fireball(pygame.sprite.Sprite):
         self.win = win
         self.target = target
         # (self.x, self.y) = wizard.get_position()
-        self.x = 100
-        self.y = 200
+        self.x = 170
+        self.y = 223
         self.x += 20
 
         # load an image and blit it

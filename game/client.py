@@ -40,7 +40,7 @@ while True:
 
     fb = fireball.Fireball(win, 10, wizard, wizard)
 
-    print("josh died")
+    #print("josh died")
 
     pygame.display.update()
 
