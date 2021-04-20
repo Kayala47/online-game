@@ -32,7 +32,7 @@ class Wizard(pygame.sprite.Sprite):
 
     LEVEL_CAP = 49
 
-    def __init__(self, win: pygame.Surface, place: str, sound_set: float = 0.1):
+    def __init__(self, win: pygame.Surface, place: str = "left", sound_set: float = 0.1):
         '''
         Description:
         Init is initalizing  these varibles to set things that the client.py is using to use in fuctions below
@@ -44,15 +44,15 @@ class Wizard(pygame.sprite.Sprite):
         # super().__init__()
         # set all stats
         self.lvl = 1
-        self.hp = self.START_HEALTH * lvl
-        self.damage = self.BASE_DAMAGE + (1 * lvl)
-        self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * lvl)
+        self.hp = self.START_HEALTH * self.lvl
+        self.damage = self.BASE_DAMAGE + (1 * self.lvl)
+        self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * self.lvl)
 
         self.x = START_X
         self.y = GROUND
 
         # TODO: define hitbox for the wizard
-        dodge()
+        self.dodge()
 
         # loading an image josh drew
         wizard_img = pygame.image.load("..\\sprites\\wizard.png")
@@ -93,13 +93,13 @@ class Wizard(pygame.sprite.Sprite):
 
     # TODO: define functions to set dodge chance, increase it - JOSH HW
     def random_dodge(self):
-        random_chance = random(0, 100)
+        random_chance = random.randint(0, 100)
         return random_chance
 
     def dodge(self):
-        random_number = random_dodge()
-        
-        print (random_number)
+        random_number = self.random_dodge()
+
+        print(random_number)
 
     # a function to level up - increase all his stats.
     def level_up(self):

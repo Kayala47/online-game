@@ -1,7 +1,7 @@
 import pygame
 #import network
 import pickle
-import wizard
+from wizard import Wizard
 import fireball
 
 pygame.font.init()
@@ -18,7 +18,9 @@ win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Is_this_working")
 
 bg = pygame.image.load("..\\sprites\\backround.png")
-wizard = pygame.image.load("..\\sprites\\wizard.png")
+# wizard = pygame.image.load("..\\sprites\\wizard.png")
+wizard = Wizard(win)
+
 
 # comment every single line like this
 # after comments work too
@@ -35,7 +37,7 @@ while True:
     # pygame.mixer.Sound.play(wizard_blast)
 
     win.blit(bg, (0, 0))
-    win.blit(wizard, (START_X, GROUND))
+    # win.blit(wizard, (START_X, GROUND))
     # pygame.display.update()
 
     fb = fireball.Fireball(win, 10, wizard, wizard)
