@@ -54,7 +54,9 @@ while True:
             run = False
             pygame.quit()
 
-        if event.
+        # if event.
+
+
 # def kill():
 #    print ("josh died")
 
