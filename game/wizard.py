@@ -1,7 +1,6 @@
 import pygame
 import random
 # this imports the libary pygmae
-
 #import fireball
 
 START_X = 100
