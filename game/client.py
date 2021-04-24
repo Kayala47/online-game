@@ -44,6 +44,9 @@ while True:
 
     fb = fireball.Fireball(win, 10, wizard, wizard)
     wizard.update()
+    #missile.update()
+
+    
 
     #print("josh died")
 
@@ -54,7 +57,14 @@ while True:
             run = False
             pygame.quit()
 
-        if event.
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            print("is it working")
+            if (pygame.mouse.get_pressed() == (True, False, False)):
+                if (wizard.take_damage(10) == True):
+                    print("blit")
+                    win.blit(bg, (0, 0))
+                print("hello")
+
 # def kill():
 #    print ("josh died")
 

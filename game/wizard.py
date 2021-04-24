@@ -41,12 +41,16 @@ class Wizard(pygame.sprite.Sprite):
         '''
 
         # super().__init__()
+        pygame.sprite.Sprite.__init__(self)
+
         # set all stats
         self.lvl = 1
         self.hp = self.START_HEALTH * self.lvl
         self.damage = self.BASE_DAMAGE + (1 * self.lvl)
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * self.lvl)
         self.win = win
+
+        self.died = False
 
         self.x = START_X
         self.y = GROUND
@@ -85,8 +89,15 @@ class Wizard(pygame.sprite.Sprite):
         return self.START_HEALTH * self.lvl
 
     def take_damage(self, amt: int):
-        self.health -= amt
+        self.hp -= amt
+        if (self.hp <= 0):
+            self.kill()
+            self.died = True
 
+        
+
+
+    
     def heal(self, amt: int):
         # the wizard can only be healed to a certain amount. We make sure his health doesn't go above that
         self.health = min(self.health + amt, self.get_max_health())
@@ -110,7 +121,8 @@ class Wizard(pygame.sprite.Sprite):
 
     # TODO: define a funciton to launch a magic blast
     def update(self):
-        self.win.blit(self.wizard_img, (self.x, self.y))
+        if (self.died == False):
+            self.win.blit(self.wizard_img, (self.x, self.y))
 
         # define a new class for the fireball
 

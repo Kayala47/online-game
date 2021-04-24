@@ -9,6 +9,7 @@ class Fireball(pygame.sprite.Sprite):
     This class handles the functions of a fireball
 
     '''
+    
 
     def __init__(self, win, dmg, target, wizard: wizard.Wizard):
 
@@ -23,7 +24,8 @@ class Fireball(pygame.sprite.Sprite):
         # load an image and blit it
         missile_load = pygame.image.load("..\\sprites\\missile.png")
 
-        win.blit(missile_load, (self.x, self.y))
+    
+        win.blit(missile_load, (self.x, self.y))    
 
         # call move()
 
