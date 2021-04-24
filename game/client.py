@@ -29,6 +29,8 @@ number = 0
 GROUND = 200
 START_X = 100
 
+phrase = "hahaha josh lost his code :P"
+
 while True:
     # win.fill("white")
     # print(number)
