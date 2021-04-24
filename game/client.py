@@ -2,7 +2,7 @@ import pygame
 #import network
 import pickle
 from wizard import Wizard
-import fireball
+from fireball import Fireball
 
 pygame.font.init()
 
@@ -20,6 +20,7 @@ pygame.display.set_caption("Is_this_working")
 bg = pygame.image.load("..\\sprites\\backround.png")
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
+fb = Fireball(win, 10, wizard, wizard)
 
 
 # comment every single line like this
@@ -42,11 +43,8 @@ while True:
     # win.blit(wizard, (START_X, GROUND))
     # pygame.display.update()
 
-    fb = fireball.Fireball(win, 10, wizard, wizard)
     wizard.update()
-    #missile.update()
-
-    
+    # missile.update()
 
     #print("josh died")
 
