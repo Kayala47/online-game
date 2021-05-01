@@ -20,6 +20,7 @@ pygame.display.set_caption("Is_this_working")
 bg = pygame.image.load("..\\sprites\\backround.png")
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
+#print("blit working")
 fb = Fireball(win, 10, wizard, wizard)
 
 
@@ -38,12 +39,13 @@ while True:
     #number += 1
 
     # pygame.mixer.Sound.play(wizard_blast)
-
+    
     win.blit(bg, (0, 0))
     # win.blit(wizard, (START_X, GROUND))
     # pygame.display.update()
 
     wizard.update()
+    #print("blit working")
     # missile.update()
 
     #print("josh died")
