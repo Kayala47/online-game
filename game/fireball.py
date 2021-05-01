@@ -3,6 +3,7 @@ import wizard
 import time
 
 missile = "..\\sprites\\missile"
+fireSign = pygame.image.load ("..\\sprites\\fireball-sign.png")
 
 
 class Fireball(pygame.sprite.Sprite):
@@ -26,7 +27,11 @@ class Fireball(pygame.sprite.Sprite):
         # load an image and blit it
         self.missile_load = pygame.image.load("..\\sprites\\missile.png")
 
+        self.fireSign_load = pygame.image.load("..\\sprites\\fireball-sign.png")
+
         win.blit(self.missile_load, (self.x, self.y))
+
+        win.blit(self.fireSign_load, (400, 60))
 
         self.move()
 
@@ -41,6 +46,8 @@ class Fireball(pygame.sprite.Sprite):
             # time.sleep(1)
 
             self.win.blit(self.missile_load, (self.x, self.y))
+
+            self.win.blit(self.fireSign_load, (400, 60))
 
         self.kill()
         # call move()
