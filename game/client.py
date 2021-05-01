@@ -23,7 +23,6 @@ wizard = Wizard(win)
 #print("blit working")
 fb = Fireball(win, 10, wizard, wizard)
 
-
 # comment every single line like this
 # after comments work too
 
@@ -39,7 +38,7 @@ while True:
     #number += 1
 
     # pygame.mixer.Sound.play(wizard_blast)
-    
+
     win.blit(bg, (0, 0))
     # win.blit(wizard, (START_X, GROUND))
     # pygame.display.update()
@@ -51,6 +50,8 @@ while True:
     #print("josh died")
 
     pygame.display.update()
+
+    fb.move()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
