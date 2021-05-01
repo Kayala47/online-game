@@ -29,9 +29,10 @@ class Fireball(pygame.sprite.Sprite):
 
         self.fire_sign = fire_sign
 
-        win.blit(self.missile_load, (self.x, self.y))
+        self.win.blit(self.missile_load, (self.x, self.y))
 
-        win.blit(self.fire_sign, (100, 100))
+
+        self.win.blit(self.fire_sign, (50, 50))
 
         self.move()
 
@@ -40,10 +41,10 @@ class Fireball(pygame.sprite.Sprite):
         width = self.win.get_width()
         # print(width)
 
-        self.win.blit(self.fire_sign, (400, 60))
+        self.win.blit(self.fire_sign, (50, 50))
 
         if self.x < width:
-            self.x += 0.001
+            self.x += 0.7
 
             # time.sleep(1)
 

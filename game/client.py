@@ -26,6 +26,7 @@ fb = Fireball(win, 10, wizard, wizard)
 # comment every single line like this
 # after comments work too
 
+
 number = 0
 GROUND = 200
 START_X = 100
@@ -49,9 +50,11 @@ while True:
 
     #print("josh died")
 
+    fb.move()
+
     pygame.display.update()
 
-    fb.move()
+    
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -61,6 +64,8 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             print("is it working")
             if (pygame.mouse.get_pressed() == (True, False, False)):
+                # (m_x, m_y) = pygame.mouse.get_pos()
+                # if (m_x == wizard.hitbox and m_y == wizard.hitbox):
                 if (wizard.take_damage(10) == True):
                     print("blit")
                     win.blit(bg, (0, 0))

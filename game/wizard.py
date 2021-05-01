@@ -50,6 +50,7 @@ class Wizard(pygame.sprite.Sprite):
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * self.lvl)
         self.win = win
 
+        
         self.died = False
 
         self.x = START_X
@@ -60,6 +61,8 @@ class Wizard(pygame.sprite.Sprite):
 
         # loading an image josh drew
         self.wizard_img = pygame.image.load("..\\sprites\\wizard.png")
+        self.hitbox = self.wizard_img.get_rect()
+        print(self.hitbox)
 
         # loading a sound we found online for the wizard's magic blast
         wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
