@@ -10,18 +10,21 @@ pygame.init()
 pygame.mixer.init()
 
 
-width = 600
-height: int = 289
+width: int = 1200
+height: int = 630
 
 win = pygame.display.set_mode((width, height))
 
 pygame.display.set_caption("Is_this_working")
 
-bg = pygame.image.load("..\\sprites\\backround.png")
+bg = pygame.image.load("..\\sprites\\better-background.png")
+
+fire_sign = pygame.image.load("..\\sprites\\fireball-sign.png")
+
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
 #print("blit working")
-fb = Fireball(win, 10, wizard, wizard)
+# fb = Fireball(win, 10, wizard, wizard)
 
 # comment every single line like this
 # after comments work too
@@ -47,11 +50,11 @@ while True:
     wizard.update()
     #print("blit working")
     # missile.update()
+    win.blit(fire_sign, (800, 100))
 
     #print("josh died")
 
-    fb.move()
-
+    
     pygame.display.update()
 
     

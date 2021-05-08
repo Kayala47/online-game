@@ -6,7 +6,7 @@ import random
 START_X = 100
 
 END_X = 470
-GROUND = 200
+GROUND = 500
 # set varible that are used to find where wizard should be.
 
 
@@ -64,11 +64,7 @@ class Wizard(pygame.sprite.Sprite):
         self.hitbox = self.wizard_img.get_rect()
         print(self.hitbox)
 
-        # loading a sound we found online for the wizard's magic blast
-        wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
-
-        # this mkae it so they cna change the volume
-        wizard_blast.set_volume(sound_set)
+        
 
         # the if and else means if it calls left go left but if not then right
         if (place == "left"):
@@ -77,7 +73,7 @@ class Wizard(pygame.sprite.Sprite):
         else:
             win.blit(self.wizard_img, (END_X, GROUND))
 
-        pygame.mixer.Sound.play(wizard_blast)
+        
 
         pygame.display.update()
         # to update the display

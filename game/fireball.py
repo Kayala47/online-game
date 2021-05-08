@@ -3,7 +3,6 @@ import wizard
 import time
 
 missile = "..\\sprites\\missile"
-fire_sign = pygame.image.load("..\\sprites\\fireball-sign.png")
 
 
 class Fireball(pygame.sprite.Sprite):
@@ -31,8 +30,13 @@ class Fireball(pygame.sprite.Sprite):
 
         self.win.blit(self.missile_load, (self.x, self.y))
 
+        # loading a sound we found online for the wizard's magic blast
+        self.wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
 
-        self.win.blit(self.fire_sign, (50, 50))
+        # this mkae it so they cna change the volume
+        self.wizard_blast.set_volume(sound_set)
+
+        pygame.mixer.Sound.play(wizard_blast)
 
         self.move()
 
@@ -41,7 +45,8 @@ class Fireball(pygame.sprite.Sprite):
         width = self.win.get_width()
         # print(width)
 
-        self.win.blit(self.fire_sign, (50, 50))
+        
+
 
         if self.x < width:
             self.x += 0.7
