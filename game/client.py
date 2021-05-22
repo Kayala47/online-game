@@ -1,3 +1,4 @@
+from typing import NewType
 import pygame
 #import network
 import pickle
@@ -20,6 +21,9 @@ pygame.display.set_caption("Is_this_working")
 bg = pygame.image.load("..\\sprites\\better-background.png")
 
 fire_sign = pygame.image.load("..\\sprites\\fireball-sign.png")
+fire_signHB = fire_sign.get_rect(topleft=(800, 100))
+
+
 
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
@@ -35,6 +39,8 @@ GROUND = 200
 START_X = 100
 
 phrase = "hahaha josh lost his code :P"
+
+repeat = False
 
 while True:
     # win.fill("white")
@@ -58,6 +64,9 @@ while True:
     pygame.display.update()
 
     
+    if repeat == True:
+        win.blit(fb.get_image(), fb.get_pos())
+        repeat = fb.move()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -65,14 +74,33 @@ while True:
             pygame.quit()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print("is it working")
+            
             if (pygame.mouse.get_pressed() == (True, False, False)):
-                # (m_x, m_y) = pygame.mouse.get_pos()
-                # if (m_x == wizard.hitbox and m_y == wizard.hitbox):
-                if (wizard.take_damage(10) == True):
-                    print("blit")
-                    win.blit(bg, (0, 0))
-                print("hello")
+                
+                mousePos = pygame.mouse.get_pos()
+                
+                print(str(mousePos)+"this one")
+                print(str(fire_signHB)+"this one")
+
+
+                # if (m_x >= wizard.hitbox and m_y >= wizard.hitbox and ):
+
+                #     fireball.move()    pygame.Rect.collidepoint(fire_signHB, mousePos)
+                
+
+                if pygame.Rect.collidepoint(fire_signHB, mousePos):
+                    
+                    fb = Fireball(win, 10, wizard, wizard)
+                    if fb.move() == True:
+                        repeat = True
+                        win.blit(fb.get_image(), fb.get_pos())
+                    else:
+                        repeat = False
+                if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
+                    if (wizard.take_damage(10) == True):
+                        
+                        win.blit(bg, (0, 0))
+                
 
 # def kill():
 #    print ("josh died")

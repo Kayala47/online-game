@@ -23,10 +23,12 @@ class Fireball(pygame.sprite.Sprite):
         self.y = 223
         self.x += 20
 
+        self.sound_set = 0.1
+
         # load an image and blit it
         self.missile_load = pygame.image.load("..\\sprites\\missile.png")
 
-        self.fire_sign = fire_sign
+        # self.fire_sign = fire_sign
 
         self.win.blit(self.missile_load, (self.x, self.y))
 
@@ -34,28 +36,44 @@ class Fireball(pygame.sprite.Sprite):
         self.wizard_blast = pygame.mixer.Sound("..\\sounds\\alien_blast.wav")
 
         # this mkae it so they cna change the volume
-        self.wizard_blast.set_volume(sound_set)
+        self.wizard_blast.set_volume(self.sound_set)
 
-        pygame.mixer.Sound.play(wizard_blast)
+        pygame.mixer.Sound.play(self.wizard_blast)
 
         self.move()
+
+
+    def get_image(self):
+        return self.missile_load
+
+    def get_pos(self):
+        return (self.x, self.y)
 
     def move(self):
 
         width = self.win.get_width()
-        # print(width)
-
-        
+        # print(width
 
 
         if self.x < width:
             self.x += 0.7
 
+
             # time.sleep(1)
 
             self.win.blit(self.missile_load, (self.x, self.y))
 
-        self.kill()
+            return True
+
+        
+
+            print(self.x)
+            print(width)
+
+        else:
+            self.kill()
+            return False
+        
         # call move()
 
     # TODO: define a move function that:

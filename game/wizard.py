@@ -61,7 +61,7 @@ class Wizard(pygame.sprite.Sprite):
 
         # loading an image josh drew
         self.wizard_img = pygame.image.load("..\\sprites\\wizard.png")
-        self.hitbox = self.wizard_img.get_rect()
+        self.hitbox = self.wizard_img.get_rect(topleft=(self.x, self.y))
         print(self.hitbox)
 
         
@@ -77,6 +77,10 @@ class Wizard(pygame.sprite.Sprite):
 
         pygame.display.update()
         # to update the display
+
+    #def hit_or_no(self, m_x, m_y):
+     #   if m_x <=
+
 
     def get_position(self):
         return (self.x, self.y)
