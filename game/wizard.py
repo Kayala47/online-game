@@ -97,6 +97,13 @@ class Wizard(pygame.sprite.Sprite):
             self.kill()
             self.died = True
 
+    def get_dodge_chance(self):
+        return self.dodge_chance
+
+
+    def set_dodge_chance(self, amt: int):
+        self.dodge_chance = amt
+
         
 
 
