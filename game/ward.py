@@ -7,8 +7,6 @@ class Ward(pygame.sprite.Sprite):
     class for running Ward(to make the dogde chance greater using a spell)
     '''
     self.wiz = wiz
-    if (wiz.is_wizard == False):
-
     def __init__(self, wiz):
         
         
