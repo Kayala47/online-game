@@ -50,6 +50,8 @@ class Wizard(pygame.sprite.Sprite):
         self.dodge_chance = self.BASE_DODGE_CHANCE + (2 * self.lvl)
         self.win = win
 
+        self.is_ward = False
+
         
         self.died = False
 
@@ -103,6 +105,8 @@ class Wizard(pygame.sprite.Sprite):
 
     def set_dodge_chance(self, amt: int):
         self.dodge_chance = amt
+
+    
 
         
 
