@@ -10,7 +10,7 @@ class Ward(pygame.sprite.Sprite):
     def __init__(self, wiz):
         
         
-        self.image = pygame.image.load("..\\sprites\\wizard.png") #TODO change
+        self.image = pygame.image.load("..\\sprites\\ward.png") #TODO change
 
         self.dodgeIncrease = 1.25
 

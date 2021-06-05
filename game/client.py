@@ -42,64 +42,118 @@ phrase = "hahaha josh lost his code :P"
 
 repeat = False
 
+playerTurn = True
+
+conterRounds = 0
+
 while True:
-    # win.fill("white")
-    # print(number)
-    #number += 1
 
-    # pygame.mixer.Sound.play(wizard_blast)
-
-    win.blit(bg, (0, 0))
-    # win.blit(wizard, (START_X, GROUND))
-    # pygame.display.update()
-
-    wizard.update()
-    #print("blit working")
-    # missile.update()
-    win.blit(fire_sign, (800, 100))
-
-    #print("josh died")
-
+    win.blit(bg, (0,0))
     
-    pygame.display.update()
 
-    
-    if repeat == True:
-        win.blit(fb.get_image(), fb.get_pos())
-        repeat = fb.move()
+    if (playerTurn == True):
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-            pygame.quit()
+        win.blit(fire_sign, (800, 100))
+        wizard.update()
+        pygame.display.update()
 
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            
-            if (pygame.mouse.get_pressed() == (True, False, False)):
+        if repeat == True:
+            win.blit(fb.get_image(), fb.get_pos())
+            repeat = fb.move()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+                pygame.quit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 
-                mousePos = pygame.mouse.get_pos()
-                
-                print(str(mousePos)+"this one")
-                print(str(fire_signHB)+"this one")
-
-
-                # if (m_x >= wizard.hitbox and m_y >= wizard.hitbox and ):
-
-                #     fireball.move()    pygame.Rect.collidepoint(fire_signHB, mousePos)
-                
-
-                if pygame.Rect.collidepoint(fire_signHB, mousePos):
+                if (pygame.mouse.get_pressed() == (True, False, False)):
                     
-                    fb = Fireball(win, 10, wizard, wizard)
-                    if fb.move() == True:
-                        repeat = True
-                        win.blit(fb.get_image(), fb.get_pos())
-                    else:
-                        repeat = False
-                if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
-                    if (wizard.take_damage(10) == True):
+                    mousePos = pygame.mouse.get_pos()
+                    
+                    print(str(mousePos)+"this one")
+                    print(str(fire_signHB)+"this one")
+                    
+
+                    if pygame.Rect.collidepoint(fire_signHB, mousePos):
                         
-                        win.blit(bg, (0, 0))
+                        fb = Fireball(win, 10, wizard, wizard)
+                        if fb.move() == True:
+                            repeat = True
+                            win.blit(fb.get_image(), fb.get_pos())
+                        else:
+                            repeat = False
+                    if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
+                        if (wizard.take_damage(10) == True):
+                            
+                            win.blit(bg, (0, 0))
+
+        pygame.display.update()
+
+        playerTurn = False
+
+
+    else:
+
+# while True:
+#     # win.fill("white")
+#     # print(number)
+#     #number += 1
+
+#     # pygame.mixer.Sound.play(wizard_blast)
+
+#     win.blit(bg, (0, 0))
+#     # win.blit(wizard, (START_X, GROUND))
+#     # pygame.display.update()
+
+#     wizard.update()
+#     #print("blit working")
+#     # missile.update()
+#     win.blit(fire_sign, (800, 100))
+
+#     #print("josh died")
+
+    
+#     pygame.display.update()
+
+    
+#     if repeat == True:
+#         win.blit(fb.get_image(), fb.get_pos())
+#         repeat = fb.move()
+
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             run = False
+#             pygame.quit()
+
+#         if event.type == pygame.MOUSEBUTTONDOWN:
+            
+#             if (pygame.mouse.get_pressed() == (True, False, False)):
+                
+#                 mousePos = pygame.mouse.get_pos()
+                
+#                 print(str(mousePos)+"this one")
+#                 print(str(fire_signHB)+"this one")
+
+
+#                 # if (m_x >= wizard.hitbox and m_y >= wizard.hitbox and ):
+
+#                 #     fireball.move()    pygame.Rect.collidepoint(fire_signHB, mousePos)
+                
+
+#                 if pygame.Rect.collidepoint(fire_signHB, mousePos):
+                    
+#                     fb = Fireball(win, 10, wizard, wizard)
+#                     if fb.move() == True:
+#                         repeat = True
+#                         win.blit(fb.get_image(), fb.get_pos())
+#                     else:
+#                         repeat = False
+#                 if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
+#                     if (wizard.take_damage(10) == True):
+                        
+#                         win.blit(bg, (0, 0))
                 
 
 # def kill():
