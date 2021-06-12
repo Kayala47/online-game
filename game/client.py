@@ -95,7 +95,7 @@ while True:
 
 
     else:
-
+        print("todo work in progress")
 # while True:
 #     # win.fill("white")
 #     # print(number)
