@@ -20,7 +20,7 @@ class Fireball(pygame.sprite.Sprite):
         self.target = target
         # (self.x, self.y) = wizard.get_position()
         self.x = 170
-        self.y = 223
+        self.y = 523
         self.x += 20
 
         self.sound_set = 0.1
@@ -62,6 +62,7 @@ class Fireball(pygame.sprite.Sprite):
             # time.sleep(1)
 
             self.win.blit(self.missile_load, (self.x, self.y))
+            
 
             return True
 

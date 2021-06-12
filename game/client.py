@@ -49,18 +49,32 @@ conterRounds = 0
 while True:
 
     win.blit(bg, (0,0))
+    win.blit(fire_sign, (800, 100))
+    wizard.update()
+    pygame.display.update()
+
+    
     
 
     if (playerTurn == True):
 
+        win.blit(bg, (0,0))
         win.blit(fire_sign, (800, 100))
         wizard.update()
         pygame.display.update()
 
-        if repeat == True:
-            win.blit(fb.get_image(), fb.get_pos())
-            repeat = fb.move()
+        
 
+        if repeat == True:
+            #TODO stop flickering
+            win.blit(fb.get_image(), fb.get_pos())
+            
+            repeat = fb.move()
+            win.blit(bg, (0,0))
+            win.blit(fire_sign, (800, 100))
+            wizard.update()
+            pygame.display.update()
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -84,18 +98,35 @@ while True:
                             win.blit(fb.get_image(), fb.get_pos())
                         else:
                             repeat = False
-                    if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
-                        if (wizard.take_damage(10) == True):
-                            
-                            win.blit(bg, (0, 0))
 
+                        
+                    # if pygame.Rect.collidepoint(wizard.hitbox, mousePos):
+                    #     if (wizard.take_damage(10) == True):
+                            
+        win.blit(bg, (0,0))
+        win.blit(fire_sign, (800, 100))
+        wizard.update()
         pygame.display.update()
 
-        playerTurn = False
+
+        
 
 
     else:
+        win.blit(bg, (0,0))
+        win.blit(fire_sign, (800, 100))
+        wizard.update()
+        pygame.display.update()
+        
+
         print("todo work in progress")
+
+        playerTurn = True
+
+    win.blit(bg, (0,0))
+    win.blit(fire_sign, (800, 100))
+    wizard.update()
+    pygame.display.update()
 # while True:
 #     # win.fill("white")
 #     # print(number)
