@@ -5,6 +5,7 @@ import time
 missile = "..\\sprites\\missile"
 
 
+
 class Fireball(pygame.sprite.Sprite):
     '''
     This class handles the functions of a fireball
@@ -49,6 +50,9 @@ class Fireball(pygame.sprite.Sprite):
     def get_pos(self):
         return (self.x, self.y)
 
+    def update(self):
+        self.win.blit(self.missile_load, (50, 50))
+
     def move(self):
 
         width = self.win.get_width()
@@ -57,10 +61,10 @@ class Fireball(pygame.sprite.Sprite):
 
         if self.x < width:
             self.x += 0.7
-
+            
 
             # time.sleep(1)
-
+            
             self.win.blit(self.missile_load, (self.x, self.y))
             
 

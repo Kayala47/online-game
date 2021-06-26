@@ -57,8 +57,7 @@ while run:
     win.blit(fire_sign, (800, 100))
     win.blit(lighting_sign, (1000, 100))
     wizard.update()
-    pygame.display.update()
-
+    
     if repeat == True:
     #TODO stop flickering
         win.blit(fb.get_image(), fb.get_pos())
@@ -84,6 +83,7 @@ while run:
                     if fb.move() == True:
                         repeat = True
                         win.blit(fb.get_image(), fb.get_pos())
+                        fb.update()
                     else:
                         repeat = False
                         
@@ -98,10 +98,11 @@ while run:
                         repeat = False
 
     
-   
+    
         if event.type == pygame.QUIT:
             run = False
             pygame.quit()
+    pygame.display.update()
 
 
 
