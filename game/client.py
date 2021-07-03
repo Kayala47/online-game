@@ -1,5 +1,6 @@
+from lighting import Lighting
 from typing import NewType
-import pygame
+import pygame as pygame
 #import network
 import pickle
 from wizard import Wizard
@@ -55,13 +56,22 @@ conterRounds = 0
 
 run = True
 
+all_sprites = pygame.sprite.Group()
+
 while run:
+
+    
+
 
     win.blit(bg, (0,0))
     win.blit(fire_sign, (800, 100))
     win.blit(lighting_sign, (1000, 100))
     win.blit(ward_sign,(800, 200))
     wizard.update()
+    all_sprites.update()
+    all_sprites.draw(win)
+
+
     
     if repeat == True:
     #TODO stop flickering
@@ -95,6 +105,12 @@ while run:
 
                 if pygame.Rect.collidepoint(lighting_signHB, mousePos):
                     
+                    lb = Lighting(win, wizard, 800, 400, all_sprites)
+                    lb.update()
+                    
+
+                if pygame.Rect.collidepoint(ward_signHB, mousePos):
+                    
                     fb = Fireball(win, 10, wizard, wizard)
                     if fb.move() == True:
                         repeat = True
@@ -107,7 +123,7 @@ while run:
         if event.type == pygame.QUIT:
             run = False
             pygame.quit()
-    pygame.display.update()
+    pygame.display.flip()
 
 
 
