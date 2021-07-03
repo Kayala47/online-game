@@ -20,13 +20,17 @@ pygame.display.set_caption("Is_this_working")
 
 bg = pygame.image.load("..\\sprites\\better-background.png")
 
-fire_sign = pygame.image.load("..\\sprites\\fireball-sign.png")
+fire_sign = pygame.image.load("..\\sprites\\fire-sign.png")
 fire_signHB = fire_sign.get_rect(topleft=(800, 100))
 
 lighting_sign = pygame.image.load("..\\sprites\\lighting-sign.png")
 lighting_signHB = lighting_sign.get_rect(topleft=(1000, 100))
 
+ward_sign = pygame.image.load("..\\sprites\\ward-sign.png")
+ward_signHB = ward_sign.get_rect(topleft=(800, 200))
 
+#size in pixels 177 and 78
+ 
 
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
@@ -56,6 +60,7 @@ while run:
     win.blit(bg, (0,0))
     win.blit(fire_sign, (800, 100))
     win.blit(lighting_sign, (1000, 100))
+    win.blit(ward_sign,(800, 200))
     wizard.update()
     
     if repeat == True:
@@ -72,9 +77,9 @@ while run:
                 
                 mousePos = pygame.mouse.get_pos()
                 
-                print(str(mousePos)+"this one")
-                print(str(fire_signHB)+"this one")
-                print(str(lighting_signHB)+"maybe this one")
+                # print(str(mousePos)+"this one")
+                # print(str(fire_signHB)+"this one")
+                # print(str(lighting_signHB)+"maybe this one")
                 
 
                 if pygame.Rect.collidepoint(fire_signHB, mousePos):
