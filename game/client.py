@@ -30,6 +30,8 @@ lighting_signHB = lighting_sign.get_rect(topleft=(1000, 100))
 ward_sign = pygame.image.load("..\\sprites\\ward-sign.png")
 ward_signHB = ward_sign.get_rect(topleft=(800, 200))
 
+cloud = pygame.image.load("..\\sprites\\cloud.png")
+
 #size in pixels 177 and 78
  
 
@@ -67,6 +69,7 @@ while run:
     win.blit(fire_sign, (800, 100))
     win.blit(lighting_sign, (1000, 100))
     win.blit(ward_sign,(800, 200))
+    win.blit(cloud, (700, 400))
     wizard.update()
     all_sprites.update()
     all_sprites.draw(win)
@@ -105,7 +108,7 @@ while run:
 
                 if pygame.Rect.collidepoint(lighting_signHB, mousePos):
                     
-                    lb = Lighting(win, wizard, 800, 400, all_sprites)
+                    lb = Lighting(win, wizard, 800, 400, 700, 400, all_sprites)
                     lb.update()
                     
 
