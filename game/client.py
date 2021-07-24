@@ -1,4 +1,5 @@
-from lightning import Lightning
+from lightning import Lightning, Cloud
+from ward import Ward
 from typing import NewType
 import pygame as pygame
 #import network
@@ -30,7 +31,7 @@ lightning_signHB = lightning_sign.get_rect(topleft=(1000, 100))
 ward_sign = pygame.image.load("..\\sprites\\ward-sign.png")
 ward_signHB = ward_sign.get_rect(topleft=(800, 200))
 
-cloud = pygame.image.load("..\\sprites\\cloud.png")
+
 
 #size in pixels 177 and 78
  
@@ -72,6 +73,7 @@ while run:
     wizard.update()
     all_sprites.update()
     #all_sprites.draw(win)
+    round = 0
 
 
     
@@ -95,7 +97,7 @@ while run:
                 
 
                 if pygame.Rect.collidepoint(fire_signHB, mousePos):
-                    
+                    round += 1
                     fb = Fireball(win, 10, wizard, wizard)
                     if fb.move() == True:
                         repeat = True
@@ -106,22 +108,19 @@ while run:
                         
 
                 if pygame.Rect.collidepoint(lightning_signHB, mousePos):
-                    
-                    lb = Lightning(win, wizard, 800, 400, 700, 400, all_sprites)
+                    round += 1
+                    lb = Lightning(win, wizard, 800, 400, all_sprites)
+                    cloud = Cloud(win, wizard, 800, 325, all_sprites)
                     #lb.update()
                     print(all_sprites)
                     
 
                 if pygame.Rect.collidepoint(ward_signHB, mousePos):
-                    
-                    fb = Fireball(win, 10, wizard, wizard)
-                    if fb.move() == True:
-                        repeat = True
-                        win.blit(fb.get_image(), fb.get_pos())
-                    else:
-                        repeat = False
+                    round += 1
+                    Ward = Ward(Wizard, win, all_sprites)
+                    #TODO HOMEWORK finish this
 
-    
+        
     
         if event.type == pygame.QUIT:
             run = False
