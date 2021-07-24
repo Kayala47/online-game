@@ -1,4 +1,4 @@
-from lighting import Lighting
+from lightning import Lightning
 from typing import NewType
 import pygame as pygame
 #import network
@@ -24,8 +24,8 @@ bg = pygame.image.load("..\\sprites\\better-background.png")
 fire_sign = pygame.image.load("..\\sprites\\fire-sign.png")
 fire_signHB = fire_sign.get_rect(topleft=(800, 100))
 
-lighting_sign = pygame.image.load("..\\sprites\\lighting-sign.png")
-lighting_signHB = lighting_sign.get_rect(topleft=(1000, 100))
+lightning_sign = pygame.image.load("..\\sprites\\lightning-sign.png")
+lightning_signHB = lightning_sign.get_rect(topleft=(1000, 100))
 
 ward_sign = pygame.image.load("..\\sprites\\ward-sign.png")
 ward_signHB = ward_sign.get_rect(topleft=(800, 200))
@@ -67,12 +67,11 @@ while run:
 
     win.blit(bg, (0,0))
     win.blit(fire_sign, (800, 100))
-    win.blit(lighting_sign, (1000, 100))
+    win.blit(lightning_sign, (1000, 100))
     win.blit(ward_sign,(800, 200))
-    win.blit(cloud, (700, 400))
     wizard.update()
     all_sprites.update()
-    all_sprites.draw(win)
+    #all_sprites.draw(win)
 
 
     
@@ -92,7 +91,7 @@ while run:
                 
                 # print(str(mousePos)+"this one")
                 # print(str(fire_signHB)+"this one")
-                # print(str(lighting_signHB)+"maybe this one")
+                # print(str(lightning_signHB)+"maybe this one")
                 
 
                 if pygame.Rect.collidepoint(fire_signHB, mousePos):
@@ -106,10 +105,11 @@ while run:
                         repeat = False
                         
 
-                if pygame.Rect.collidepoint(lighting_signHB, mousePos):
+                if pygame.Rect.collidepoint(lightning_signHB, mousePos):
                     
-                    lb = Lighting(win, wizard, 800, 400, 700, 400, all_sprites)
-                    lb.update()
+                    lb = Lightning(win, wizard, 800, 400, 700, 400, all_sprites)
+                    #lb.update()
+                    print(all_sprites)
                     
 
                 if pygame.Rect.collidepoint(ward_signHB, mousePos):
