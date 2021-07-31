@@ -83,6 +83,8 @@ class Wizard(pygame.sprite.Sprite):
     #def hit_or_no(self, m_x, m_y):
      #   if m_x <=
 
+    def set_ward(self, active):
+        self.is_ward = active
 
     def get_position(self):
         return (self.x, self.y)
@@ -101,6 +103,8 @@ class Wizard(pygame.sprite.Sprite):
 
     def get_dodge_chance(self):
         return self.dodge_chance
+        
+        
 
 
     def set_dodge_chance(self, amt: int):

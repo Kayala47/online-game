@@ -117,7 +117,7 @@ while run:
 
                 if pygame.Rect.collidepoint(ward_signHB, mousePos):
                     round += 1
-                    Ward = Ward(Wizard, win, all_sprites)
+                    ward = Ward(wizard, win, all_sprites)
                     #TODO HOMEWORK finish this
 
         
