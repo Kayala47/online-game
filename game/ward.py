@@ -5,7 +5,7 @@ from wizard import Wizard
 
 class Ward(pygame.sprite.Sprite):
     '''
-    class for running Ward(to make the dogde chance greater using a spell)
+    class for running Ward(to make the dodge chance greater using a spell)
     '''
     
     def __init__(self, wiz, win,  *groups):
@@ -21,7 +21,7 @@ class Ward(pygame.sprite.Sprite):
         
 
         self.ward = pygame.image.load("..\\sprites\\ward.png")
-        self.wardHB = self.ward.get_rect(topleft=(800, 200))
+        self.wardHB = self.ward.get_rect(topleft=(self.x, self.y))
         self.height = self.wardHB.height
         if (wiz.is_ward == False):
             self.dodgeUp(wiz)
