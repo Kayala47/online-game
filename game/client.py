@@ -6,6 +6,7 @@ import pygame as pygame
 import pickle
 from wizard import Wizard
 from fireball import Fireball
+from zombie import Zombie
 
 pygame.font.init()
 
@@ -32,19 +33,25 @@ ward_sign = pygame.image.load("..\\sprites\\ward-sign.png")
 ward_signHB = ward_sign.get_rect(topleft=(800, 200))
 
 
+all_sprites = pygame.sprite.Group()
 
 #size in pixels 177 and 78
  
 
 # wizard = pygame.image.load("..\\sprites\\wizard.png")
 wizard = Wizard(win)
+
+
+enemyList = []
+zombie = Zombie(win, 820, 500, all_sprites)
+enemyList.append(zombie)
 #print("blit working")
 # fb = Fireball(win, 10, wizard, wizard)
 
 # comment every single line like this
 # after comments work too
 
-
+backgroundWidth = bg.get_width()
 number = 0
 GROUND = 200
 START_X = 100
@@ -59,18 +66,18 @@ conterRounds = 0
 
 run = True
 
-all_sprites = pygame.sprite.Group()
-
+#TODO collide rect with the wizard and zombie
+#TODO moster spawner
 while run:
 
     
-
 
     win.blit(bg, (0,0))
     win.blit(fire_sign, (800, 100))
     win.blit(lightning_sign, (1000, 100))
     win.blit(ward_sign,(800, 200))
     wizard.update()
+    zombie.update()
     all_sprites.update()
     #all_sprites.draw(win)
     round = 0
@@ -98,13 +105,13 @@ while run:
 
                 if pygame.Rect.collidepoint(fire_signHB, mousePos):
                     round += 1
-                    fb = Fireball(win, 10, wizard, wizard)
-                    if fb.move() == True:
-                        repeat = True
-                        win.blit(fb.get_image(), fb.get_pos())
-                        fb.update()
-                    else:
-                        repeat = False
+                    fb = Fireball(win, 1, wizard, enemyList, wizard, backgroundWidth, all_sprites)
+                    # if fb.move() == True:
+                    #     repeat = True
+                    #     win.blit(fb.get_image(), fb.get_pos())
+                    #     fb.update()
+                    # else:
+                    #     repeat = False
                         
 
                 if pygame.Rect.collidepoint(lightning_signHB, mousePos):

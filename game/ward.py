@@ -14,7 +14,9 @@ class Ward(pygame.sprite.Sprite):
         self.win = win
         self.start_time = time.time()
         self.round = 0
-         
+        self.x, self.y = self.wiz.get_position()
+
+
 
         self.dodgeIncrease = 1.25
         self.oldDodge_chance = wiz.get_dodge_chance()
@@ -44,7 +46,7 @@ class Ward(pygame.sprite.Sprite):
         self.elapsed_time = time.time() - self.start_time 
         self.x, self.y = self.wiz.get_position()
         self.y -= self.height
-        if (self.round < 2):
+        if (self.round < 1000):
 
             self.win.blit(self.ward,(self.x, self.y))
         

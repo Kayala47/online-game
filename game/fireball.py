@@ -5,30 +5,31 @@ import time
 missile = "..\\sprites\\missile"
 
 
-
 class Fireball(pygame.sprite.Sprite):
     '''
     This class handles the functions of a fireball
 
     '''
 
-    def __init__(self, win, dmg, target, wizard: wizard.Wizard):
+    def __init__(self, win, dmg, target, enemyList, wizard: wizard.Wizard, width, *groups):
+        super().__init__(*groups)
+        
 
-        pygame.sprite.Sprite.__init__(self)
-
-        self.dmg = dmg
+        self.dmg = dmg *1000000000000000000
         self.win = win
         self.target = target
         # (self.x, self.y) = wizard.get_position()
         self.x = 170
         self.y = 523
         self.x += 20
+        self.enemyList = enemyList
+        self.width = width
 
         self.sound_set = 0.1
 
         # load an image and blit it
         self.missile_load = pygame.image.load("..\\sprites\\missile.png")
-
+        self.rect = self.missile_load.get_rect(topleft=(self.x, self.y))
         # self.fire_sign = fire_sign
 
         self.win.blit(self.missile_load, (self.x, self.y))
@@ -41,6 +42,8 @@ class Fireball(pygame.sprite.Sprite):
 
         pygame.mixer.Sound.play(self.wizard_blast)
 
+
+
         self.move()
 
 
@@ -51,7 +54,28 @@ class Fireball(pygame.sprite.Sprite):
         return (self.x, self.y)
 
     def update(self):
-        self.win.blit(self.missile_load, (50, 50))
+        ''' 
+        Update will blit and check if it got from the first thing in enmy list to take damage.
+        '''
+        self.rect = self.missile_load.get_rect(topleft=(self.x, self.y))
+        self.x += 0.7
+        self.win.blit(self.missile_load, (self.x, self.y))
+        self.enemyindex = self.rect.collidelist(self.enemyList)
+        #hit = self.rect.colliderect(self.enemyList[0].getrect())
+
+        if self.enemyindex >= 0: 
+            #print("hit")
+            self.enemyList[self.enemyindex].take_damage(self.dmg) 
+            self.kill()
+            #print("not working")
+
+        if self.x >= self.width:
+            print("died")
+            self.kill()
+
+
+        
+
 
     def move(self):
 
@@ -72,8 +96,7 @@ class Fireball(pygame.sprite.Sprite):
 
         
 
-            print(self.x)
-            print(width)
+
 
         else:
             self.kill()
